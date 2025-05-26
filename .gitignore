@@ -1,0 +1,29 @@
+# Ignore build output
+a.out
+
+# Ignore test file
+test.cpp
+
+# Ignore compiled object files
+*.o
+*.obj
+
+# Ignore executables
+*.exe
+*.out
+*.app
+
+# Ignore generated dependency files
+*.d
+
+# Ignore IDE/editor folders
+.vscode/
+.idea/
+*.iml
+
+# Ignore macOS system file
+.DS_Store
+
+# Ignore logs and temp
+*.log
+*.tmp
