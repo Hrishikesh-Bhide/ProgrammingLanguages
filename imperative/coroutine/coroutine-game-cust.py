@@ -1,22 +1,20 @@
-def room1():
-    yield "Door 1-1: Empty"
-    yield "Door 1-2: Empty"
-    yield "Door 1-3: Gold!"
-
-def room2():
-    yield "Door 2-1: Empty"
-    yield "Door 2-2: Empty"
-    yield "Door 2-3: Empty"
-
-def room3():
-    yield "Door 3-1: Empty"
-    yield "Door 3-2: Empty"
-    yield "Door 3-3: Empty"
+def room(room_number, gold_door_index):
+    for i in range(1, 4):
+        if i == gold_door_index:
+            yield f"Door {room_number}-{i}: Gold!"
+        else:
+            yield f"Door {room_number}-{i}: Empty"
 
 def main():
-    r1 = room1()
-    r2 = room2()
-    r3 = room3()
+    r1 = room(1, None)
+    r2 = room(2, 2)
+    r3 = room(3, None)
+
+    rooms = {
+        '1': r1,
+        '2': r2,
+        '3': r3,
+    }
 
     doors_opened = 0
     max_doors = 5
@@ -27,17 +25,12 @@ def main():
 
     while doors_opened < max_doors and not found_gold:
         choice = input(f"\nOpen door from room (1, 2, or 3) [Attempt {doors_opened + 1}/{max_doors}]: ")
-        if choice not in ('1', '2', '3'):
+        if choice not in rooms:
             print("Invalid choice. Try again.")
             continue
 
         try:
-            if choice == '1':
-                result = next(r1)
-            elif choice == '2':
-                result = next(r2)
-            else:
-                result = next(r3)
+            result = next(rooms[choice])
         except StopIteration:
             print(f"No more doors to open in room {choice}. Try a different room.")
             continue
@@ -50,7 +43,7 @@ def main():
             found_gold = True
 
     if not found_gold:
-        print("\nGame over. You didn't find the gold this time.")
+        print("\n Game over. You didn't find the gold this time.")
 
 if __name__ == "__main__":
     main()
