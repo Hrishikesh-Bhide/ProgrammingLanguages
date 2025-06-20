@@ -7,6 +7,7 @@ test.cpp
 # Ignore compiled object files
 *.o
 *.obj
+*.class
 
 # Ignore executables
 *.exe
