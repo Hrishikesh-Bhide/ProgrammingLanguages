@@ -2,7 +2,7 @@ public class Animal {
     protected String species;
     protected int age;
 
-    public Animal(){
+    public Animal() {
         this.species = "default";
         this.age = 0;
     }
@@ -22,5 +22,9 @@ public class Animal {
 
     public void move() {
         System.out.println(species + " moves forward.");
+    }
+
+    public void print() {
+        System.out.println("Animal properties " + species + " " + age);
     }
 }
