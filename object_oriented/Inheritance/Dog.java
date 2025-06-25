@@ -1,9 +1,9 @@
 public class Dog extends Animal {
      
-    //String name;
+    String name;
     public Dog(String name, int age) {
-        //this.name = name;
         super("Dog", age);
+        this.name = name;
     }
 
     public void move(int num){
