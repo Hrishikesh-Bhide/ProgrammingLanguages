@@ -13,7 +13,7 @@ public class Animal {
     }
 
     public void breathe() {
-        System.out.println(species + " is breathing.");
+        System.out.println(species + " is breathing heavily.");
     }
 
     public void speak() {
