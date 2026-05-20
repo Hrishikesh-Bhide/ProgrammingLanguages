@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
         But when arrays are printed:
             std::cout << x
 
-        the array expression degrades into a pointer to its first element,
+        the array expression decays into a pointer to its first element,
         so the memory address gets printed instead of the array contents.
 
         This behavior is somewhat inconsistent compared to primitive types
@@ -58,6 +58,8 @@ int main(int argc, char const *argv[])
 
     int* y = new int[3]{1, 2, 3};
 
+    // Some of the pointer arithmetic behavior is explained below.
+
     std::cout << "x                  : " << x << "\n";
     std::cout << "x + 1              : " << x + 1 << "\n";
     std::cout << "&x                 : " << &x << "\n";
@@ -75,3 +77,20 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
+
+/*
+&x + 1 moves by 12 bytes because &x is a pointer to the entire array.
+The type is int (*)[3], so +1 skips one whole array of 3 ints.
+
+&x[0] + 1 moves by 4 bytes because &x[0] is a pointer to one int.
+The type is int*, so +1 skips one int.
+
+x + 1 moves by 4 bytes because in this expression, x decays to &x[0].
+So it behaves like an int*.
+
+y + 1 moves by 4 bytes because y is an int*.
+So +1 skips one int.
+
+&y + 1 moves by 8 bytes on a typical 64-bit machine because &y is a pointer to the pointer variable y.
+The type is int**, so +1 skips one int* object, and an int* is usually 8 bytes on a 64-bit system.
+*/

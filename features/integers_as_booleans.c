@@ -23,9 +23,9 @@ int main()
         introduced the _Bool type and the stdbool.h library.
     */
 
-    printf("%d\n", !!3);    // prints 1
-    printf("%d\n", !!-3);   // prints 1
-    printf("%d\n", !!0);    // prints 0
+    printf("%d\n", !!3);
+    printf("%d\n", !!-3);
+    printf("%d\n", !!0);
 
     return 0;
 }
