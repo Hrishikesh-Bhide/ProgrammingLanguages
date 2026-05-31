@@ -28,3 +28,6 @@ test.cpp
 # Ignore logs and temp
 *.log
 *.tmp
+
+# Ignore old code
+archive/
