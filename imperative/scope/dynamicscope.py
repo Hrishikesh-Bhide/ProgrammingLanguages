@@ -16,7 +16,9 @@ def outer(choice):
     print(f"{b=}")
     print(f"{c=}")
   if choice == 1:
+    b = 20
     inner1()
   else:
-    inner2
-outer(1)
+    b = 10
+    inner2()
+outer(2)
