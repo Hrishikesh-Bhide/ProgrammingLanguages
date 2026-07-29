@@ -26,7 +26,6 @@ public class Main {
             System.out.println(d);
         }
 
-        CompareDogByAge cda = new CompareDogByAge();
         CompareDogByName cdn = new CompareDogByName();
 
         Collections.sort(dogs, cdn);
@@ -46,7 +45,6 @@ public class Main {
         Animal a = new Animal();
         a = d2;
         a.breathe();
-        String x = d2.name;
         d2.beAgoodBoy();
         a = c;
         a.breathe();
