@@ -60,7 +60,7 @@ mergesort cmp list =
     (mergesort cmp rightHalf)
   where
     (leftHalf, rightHalf) =
-      splitAt (length list `div` 2) list
+      splitAt (div (length list) 2) list
 
     merge [] ys = ys
     merge xs [] = xs
